@@ -1,0 +1,73 @@
+import javax.swing.*;
+
+
+public class StringManip{
+public static void main(String[]args){
+
+
+ String inputA = JOptionPane.showInputDialog("Give me a word");
+ String inputB = JOptionPane.showInputDialog("Give me another word");
+
+ 
+ int ans = inputA.compareTo(inputB);
+ System.out.println(ans);
+
+if (ans>0){
+System.out.println(inputA + ": is most alphabetical");
+}else if ( ans<0){
+System.out.println(inputB+": is most alphabetical");
+}else if ( inputA.equals(inputB)){
+System.out.println("They are both equal");
+}
+
+}
+}
+
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package string.classwork;
+
+/**
+ *
+ * @author Kyrab
+ */
+import javax.swing.*;
+
+public class StringClasswork {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        String inputA = JOptionPane.showInputDialog("Give me a word");
+        String inputB = JOptionPane.showInputDialog("Give me another word");
+
+// 
+        int ans = inputA.compareTo(inputB);
+        System.out.println(ans);
+
+        if ( inputA.equals(inputB)) {
+            System.out.println("They are both equal");
+        } else {
+            if (ans < 0) {
+                System.out.println(inputA + ": is most alphabetical");
+                String inputA_upper = inputA.toUpperCase();
+                System.out.println(inputA_upper);
+                String inputA_lower = inputA.toLowerCase();
+                System.out.println(inputA_lower);
+            } else if (ans > 0) {
+                String inputB_upper = inputB.toUpperCase();
+                System.out.println(inputB_upper);
+                String inputB_lower = inputB.toLowerCase();
+                System.out.println(inputB_lower);
+                System.out.println(inputB + ": is most alphabetical");
+            }
+        }
+
+
+    }
