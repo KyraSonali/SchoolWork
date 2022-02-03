@@ -19,7 +19,7 @@ public class WordGames {
 
         int score = 0;
 
-        String lastL = "" + input.charAt(input.length());
+        String lastL = "" + input.charAt(input.length()-1);
         String firstL = secondInput.substring(0);
 
         while (lastL.equalsIgnoreCase(firstL)) {

@@ -13,12 +13,20 @@ import javax.swing.JOptionPane;
 public class CompareNames {
 
     public static void main(String[] args) {
-        
-        String input = JOptionPane.showInputDialog("enter 5 words");
-       
-        String nameOne="";
-        
-  
+
+        String input = JOptionPane.showInputDialog("enter word");
+        String mostAlpha = input;
+
+        for (int i = 1; i < 5; i++) {
+            input = JOptionPane.showInputDialog("enter word");
+            
+            if (input.compareTo(mostAlpha) < 0) {
+                mostAlpha = input;
+            }
+
+        }
+
+        System.out.println(mostAlpha);
 
     }
 }
