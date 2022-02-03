@@ -1,5 +1,5 @@
-public class ManyLoops{
-  public static void main(String[]args){
+//public class ManyLoops{
+ // public static void main(String[]args){
  //  for (int i=10; i>=1; i--){
 //   System.out.print(i + "\t");
 //   }
@@ -10,7 +10,7 @@ public class ManyLoops{
 //         System.out.print( i+"\t");
 //         }
 //question 3.1 = input 10 nbr - display eacch value x 2
-for (int i = 0 ; i<10; i++){
-int input = (Intege;/r.parseInt(inputStr))(
- }
-}
+//for (int i = 0 ; i<10; i++){
+//int input = (Intege;/r.parseInt(inputStr))(
+// }
+//}
