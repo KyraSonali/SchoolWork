@@ -22,7 +22,8 @@ public class ReadNums {
 
         while (numberScanner.hasNextInt()) {
             int number = numberScanner.nextInt();
-            
+            System.out.println(number); 
+                  
             
 
         }
