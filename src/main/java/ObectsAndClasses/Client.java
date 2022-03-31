@@ -13,6 +13,7 @@ public class Client {
     private String clientName;
     private String accountNumber;
     private double balance;
+    private boolean valid=false;
 
     public Client(String inName, String inNumber, double inAmount) {
         clientName = inName;
@@ -60,5 +61,15 @@ public class Client {
        System.out.println("Account Number"+ getNumber());
        System.out.println("Account Balance"+ getBalance());
    }
+//   
+//   public boolean validNumber(){
+//       int accountNbr = Integer.parseInt(getNumber());
+//       if(accountNbr> 0 ){
+//           return true;
+//       }else{
+//           return false;
+//       }
+//   }
+           
         
 }
