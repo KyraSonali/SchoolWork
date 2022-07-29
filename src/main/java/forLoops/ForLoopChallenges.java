@@ -1,3 +1,5 @@
+package forLoops;
+
 import javax.swing.*;
 public class ForLoopChallenges{
    public static void main (String[]args){

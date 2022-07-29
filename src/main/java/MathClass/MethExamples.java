@@ -1,3 +1,5 @@
+package MathClass;
+
 import java.lang.Math;
 public class MethExamples  
 {

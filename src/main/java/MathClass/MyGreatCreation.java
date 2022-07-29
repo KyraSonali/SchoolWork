@@ -1,3 +1,5 @@
+package MathClass;
+
 
 
 public class MyGreatCreation

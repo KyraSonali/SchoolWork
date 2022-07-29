@@ -1,3 +1,5 @@
+package ifStatements;
+
 import javax.swing.*;
 
 public class If_statements{
