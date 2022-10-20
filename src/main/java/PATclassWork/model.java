@@ -34,7 +34,7 @@ public class model extends javax.swing.JFrame {
         studentCombo.addItem("JC");
         studentCombo.addItem("Megan");
         studentCombo.addItem("neeraav");
-        
+     
         
         
         //list
@@ -128,6 +128,11 @@ public class model extends javax.swing.JFrame {
                 studentComboMouseClicked(evt);
             }
         });
+        studentCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                studentComboActionPerformed(evt);
+            }
+        });
         jPanel1.add(studentCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 230, 170, 30));
 
         studentList.setModel(new javax.swing.AbstractListModel<String>() {
@@ -174,6 +179,10 @@ public class model extends javax.swing.JFrame {
        String name = (String) studentCombo.getSelectedItem();
        comboLabel.setText("Person:"+ name);
     }//GEN-LAST:event_studentComboMouseClicked
+
+    private void studentComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentComboActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_studentComboActionPerformed
 
     /**
      * @param args the command line arguments
