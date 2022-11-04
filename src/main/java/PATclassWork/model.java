@@ -40,7 +40,7 @@ public class model extends javax.swing.JFrame {
         //list
         ArrayList<String> names = getListNames();
         DefaultListModel b = new DefaultListModel();
-       //studentList.add(names);
+        //studentList.add(names);
         studentList.setModel(b);
                
         
