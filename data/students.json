@@ -1,0 +1,25 @@
+[
+	{
+
+		name: "Neeraav",
+		age:  17,
+		strength: "grip"
+
+	},
+
+
+	{
+
+		name: "Kyra",
+		age: 17,
+		strength: "pro-procrastinator"
+
+	},
+
+	{
+		name: "JC",
+		age: 17,
+		strength:"matH"
+
+	}
+		
