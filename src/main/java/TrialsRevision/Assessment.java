@@ -55,6 +55,11 @@ public class Assessment {
         return isExam;
     }
 
+    public String getModuleID() {
+        return moduleID;
+    }
+
+    
     @Override
     public String toString() {
         return getAssessmentName()+ " : " + getMark()+ "/" + getTotal();

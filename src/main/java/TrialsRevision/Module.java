@@ -49,20 +49,40 @@ public class Module {
         return null;
     }
 
+    //Q3.7
     public double getModuleMark() {
         double combinedMark;
         double percentage;
         double contribution;
         double weighting = 0.1;
-        double moduleMark=0;
+        double moduleMark = 0;
         for (int i = 0; i < size; i++) {
             combinedMark = assessments[i].getMark() / assessments[i].getTotal();
             percentage = combinedMark * 100;
-            contribution = percentage*weighting;
-            moduleMark+= contribution;
-
+            contribution = percentage * weighting;
+            moduleMark += contribution;
+            //two decimal places
         }
         return moduleMark;
     }
 
+    //Q3.8
+    public boolean hasPasssed() {
+        if (getModuleMark() > PASS_MARK) {
+            return true;
+        }
+        return false;
+    }
+
+    //Q3.9
+    @Override
+    public String toString() {
+        String out="";
+        for(int i=0;i<size;i++){
+            out= "MODULE: "+ getModuleName() + "| "+ "Assessments: "+ assessments[i].toString();
+        }
+       return out;
+    }
+    
+    
 }
