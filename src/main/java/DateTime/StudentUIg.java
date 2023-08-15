@@ -8,7 +8,7 @@ package DateTime;
  *
  * @author Kyrab
  */
-public class StudentUI {
+public class StudentUIg {
     public static void main(String[] args) {
         StudentManager k = new StudentManager(); 
         System.out.println(k.toString());

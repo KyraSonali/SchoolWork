@@ -16,7 +16,7 @@ public class Module {
     private String moduleID;
     private String moduleName;
     private Assessment assessments[];
-    private int size;
+    private int size=0;
     public static final int PASS_MARK = 50;
 
     public Module(String inCID, String inMID, String inMN) {
@@ -75,14 +75,24 @@ public class Module {
     }
 
     //Q3.9
+//    @Override
+//    public String toString() {
+//        String out="";
+//        for(int i=0;i<size;i++){
+//            out= "MODULE: "+ getModuleName() + "| "+ "Assessments: "+ assessments[i].toString();
+//        }
+//       return out;
+//    }
     @Override
     public String toString() {
-        String out="";
-        for(int i=0;i<size;i++){
-            out= "MODULE: "+ getModuleName() + "| "+ "Assessments: "+ assessments[i].toString();
+        StringBuilder out = new StringBuilder("MODULE: " + getModuleName() + " | Assessments: ");
+        for (int i = 0; i < size; i++) {
+            out.append(assessments[i].toString());
+            if (i < size - 1) {
+                out.append(", ");
+            }
         }
-       return out;
+        return out.toString();
     }
-    
-    
+
 }

@@ -26,7 +26,7 @@ public class Student {
     private LocalDate dateOfBirth;
     private String studentID;
     private Module modules[];
-    private int size=0;
+    private int size = 0;
 
     //Q4.2
     public Student(String inN, LocalDate inDOB) {
@@ -69,8 +69,8 @@ public class Student {
                 LocalDate dateWritten = LocalDate.parse(d, dateModel);
                 boolean exam = assessmentLinesc.nextBoolean();
                 Assessment a = new Assessment(mId, mName, t, m, w, dateWritten, exam);
-                addAssessment(a,mId);
-                size++;
+                addAssessment(a, mId);
+               
 
             }
         } catch (FileNotFoundException ex) {
@@ -87,22 +87,28 @@ public class Student {
     private void addAssessment(Assessment assessment, String assessmentModuleID) {
         for (int i = 0; i < size; i++) {
             if (modules[i].getModuleID().equals(assessmentModuleID)) {
-               modules[i].addAssesment(assessment);
+                modules[i].addAssesment(assessment);
             }
         }
 
-       
-        
     }
 
     @Override
-     //Q4.5
+    //Q4.5
+//    public String toString() {
+//        String out = " ";
+//        for(int i =0 ; i<size;i++){
+//            out = "STUDENT:" + getStudentName() + modules.toString();
+//        }
+//        return out;
+//    }
+
     public String toString() {
-        String out = " ";
-        for(int i =0 ; i<size;i++){
-            out = "STUDENT:" + getStudentName() + modules.toString();
+        StringBuilder out = new StringBuilder("STUDENT: " + getStudentName() + "\n");
+        for (int i = 0; i < size; i++) {
+            out.append(modules[i].toString()).append("\n");
         }
-        return out;
+        return out.toString();
     }
 
 }
