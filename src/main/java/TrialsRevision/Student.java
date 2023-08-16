@@ -74,7 +74,7 @@ public class Student {
         } catch (FileNotFoundException ex) {
             System.out.println("student assesment file cannot be found");
         }
-        
+
         generateStudentID();;
 
     }
@@ -113,58 +113,64 @@ public class Student {
 
     //Q6.1
     private String generateStudentID() {
-       String firstName = studentName.substring(0,3);
-       int space = studentName.lastIndexOf(" ")+1;
-       String lastName = studentName.substring(space);
-       String abbrevLastName = lastName.substring(0, 3);
-       String year= dateOfBirth.getYear()+" ";
-       String abbrevYear =  year.substring(2);
-       int randNum = (int)(Math.random()*1000)+1;
-       
-       return (abbrevLastName+ firstName+"-"+ randNum +"-"+ abbrevYear).toUpperCase();
-       
+        String firstName = studentName.substring(0, 3);
+        int space = studentName.lastIndexOf(" ") + 1;
+        String lastName = studentName.substring(space);
+        String abbrevLastName = lastName.substring(0, 3);
+        String year = dateOfBirth.getYear() + " ";
+        String abbrevYear = year.substring(2);
+        int randNum = (int) (Math.random() * 1000) + 1;
+
+        return (abbrevLastName + firstName + "-" + randNum + "-" + abbrevYear).toUpperCase();
+
     }
-    
+
     //Q6.2
-    public String getAcademicRecord(){
-        String title = "ACADEMIC RECORD"+ "\n";
-        String student = "Student ID:"+ generateStudentID();
-        String record=" ";
-        for(int i=0;i<size;i++){
+    public String getAcademicRecord() {
+        String title = "ACADEMIC RECORD" + "\n";
+        String student = "Student ID:" + generateStudentID();
+        String record = " ";
+        for (int i = 0; i < size; i++) {
             double moduleMark = modules[i].getModuleMark();
             boolean hasPassed = modules[i].hasPasssed();
-            String passedOrFailed="";
-            if(hasPassed==true){
-                passedOrFailed= "passed";
-                
-            }else{
-                passedOrFailed="failed";
+            String passedOrFailed = "";
+            if (hasPassed == true) {
+                passedOrFailed = "passed";
+
+            } else {
+                passedOrFailed = "failed";
             }
-            record = "\n"+ modules[i].getModuleName() + "|"+ moduleMark + "%"+ " | "+ passedOrFailed + " | ";
+            record = "\n" + modules[i].getModuleName() + "|" + moduleMark + "%" + " | " + passedOrFailed + " | ";
         }
         return title + student + record;
     }
 
-    public void sortByDate(){
-        //cannot remeber
+    public void sortByDate() {
+        for (int i = 0; i < size; i++) {
+            for (int j = i + 1; j < size; j++) {
+                if (modules[i].getExamDate().isBefore(modules[j].getExamDate())) {
+                    Module tempM = modules[i];
+                    modules[i] = modules[j];
+                    modules[j] = tempM;
+                    
+                }
+            }
+        }
     }
-    
-    
-    
-    
-    public String getExamSchedule(){
+
+    public String getExamSchedule() {
         String title = "EXAM SCHEDULE" + "\n";
-        String student = "STUDENT ID: "+ generateStudentID() + "\n";
-        String modName=" ";
-        String examDate =" ";
-        for(int i =0;i<size;i++){
+        String student = "STUDENT ID: " + generateStudentID() + "\n";
+        String modName = " ";
+        String examDate = " ";
+        for (int i = 0; i < size; i++) {
             modName = modules[i].getModuleName();
             LocalDate d = modules[i].getExamDate();
             DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
             examDate = d.format(dtf);
-           
+
         }
-        return title+student+" | "+ modName+" | "+ examDate+" | " ;
-        
+        return title + student + " | " + modName + " | " + examDate + " | ";
+
     }
 }

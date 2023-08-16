@@ -61,6 +61,7 @@ public class Module {
             percentage = combinedMark * 100;
             contribution = percentage * weighting;
             moduleMark += contribution;
+            moduleMark = Math.round(moduleMark*100.0)/100.0;
             //two decimal places
         }
         return moduleMark;
