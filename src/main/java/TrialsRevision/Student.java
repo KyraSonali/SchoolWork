@@ -8,12 +8,10 @@ package TrialsRevision;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+
 import java.time.format.DateTimeFormatter;
-import java.util.Locale;
+
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -70,12 +68,14 @@ public class Student {
                 boolean exam = assessmentLinesc.nextBoolean();
                 Assessment a = new Assessment(mId, mName, t, m, w, dateWritten, exam);
                 addAssessment(a, mId);
-               
+                //size++
 
             }
         } catch (FileNotFoundException ex) {
             System.out.println("student assesment file cannot be found");
         }
+        
+        generateStudentID();;
 
     }
 
@@ -96,12 +96,12 @@ public class Student {
     @Override
     //Q4.5
 //    public String toString() {
-//        String out = " ";
-//        for(int i =0 ; i<size;i++){
-//            out = "STUDENT:" + getStudentName() + modules.toString();
-//        }
-//        return out;
-//    }
+////        String out = " ";
+////        for(int i =0 ; i<size;i++){
+////            out = "STUDENT:" + getStudentName() + modules.toString();
+////        }
+////        return out;
+////    }
 
     public String toString() {
         StringBuilder out = new StringBuilder("STUDENT: " + getStudentName() + "\n");
@@ -111,4 +111,60 @@ public class Student {
         return out.toString();
     }
 
+    //Q6.1
+    private String generateStudentID() {
+       String firstName = studentName.substring(0,3);
+       int space = studentName.lastIndexOf(" ")+1;
+       String lastName = studentName.substring(space);
+       String abbrevLastName = lastName.substring(0, 3);
+       String year= dateOfBirth.getYear()+" ";
+       String abbrevYear =  year.substring(2);
+       int randNum = (int)(Math.random()*1000)+1;
+       
+       return (abbrevLastName+ firstName+"-"+ randNum +"-"+ abbrevYear).toUpperCase();
+       
+    }
+    
+    //Q6.2
+    public String getAcademicRecord(){
+        String title = "ACADEMIC RECORD"+ "\n";
+        String student = "Student ID:"+ generateStudentID();
+        String record=" ";
+        for(int i=0;i<size;i++){
+            double moduleMark = modules[i].getModuleMark();
+            boolean hasPassed = modules[i].hasPasssed();
+            String passedOrFailed="";
+            if(hasPassed==true){
+                passedOrFailed= "passed";
+                
+            }else{
+                passedOrFailed="failed";
+            }
+            record = "\n"+ modules[i].getModuleName() + "|"+ moduleMark + "%"+ " | "+ passedOrFailed + " | ";
+        }
+        return title + student + record;
+    }
+
+    public void sortByDate(){
+        //cannot remeber
+    }
+    
+    
+    
+    
+    public String getExamSchedule(){
+        String title = "EXAM SCHEDULE" + "\n";
+        String student = "STUDENT ID: "+ generateStudentID() + "\n";
+        String modName=" ";
+        String examDate =" ";
+        for(int i =0;i<size;i++){
+            modName = modules[i].getModuleName();
+            LocalDate d = modules[i].getExamDate();
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            examDate = d.format(dtf);
+           
+        }
+        return title+student+" | "+ modName+" | "+ examDate+" | " ;
+        
+    }
 }

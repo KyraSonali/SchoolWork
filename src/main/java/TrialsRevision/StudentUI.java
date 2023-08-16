@@ -15,8 +15,11 @@ import java.time.Month;
 public class StudentUI {
     public static void main(String[] args) {
         LocalDate DOB = LocalDate.of(2005,7,6);
-        Student k = new Student("Gf",DOB);
+        Student k = new Student("Geoffrey Leigh Palmers",DOB);
         System.out.println(k.toString());
+        System.out.println(k.getAcademicRecord());
+        //k.sortByDate()
+        System.out.println(k.getExamSchedule());
         
     }
     
